@@ -1,0 +1,166 @@
+package Go;
+
+
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
+import javafx.stage.Stage;
+
+public class Contact extends GridPane {
+	
+	
+	
+private Label lblNom = new Label();
+private Label lblPrenom = new Label();
+private Label lblAdresseMail = new Label();
+private Label lblSujet = new Label();
+private TextField txtNom = new TextField();
+private TextField txtPrenom = new TextField();
+private TextField txtAdresseMail = new TextField();
+private TextField txtSujet = new TextField();
+private TextArea txt = new TextArea();
+private Button btnRetour = new Button("Retour");
+private Button btnEnvoyer= new Button("Envoyer");
+	
+public Contact() {
+	GridPane root = new GridPane();
+	
+	root.addRow(0,lblNom, txtNom);
+	root.addRow(1, lblPrenom, txtPrenom);
+	root.addRow(2, lblAdresseMail, txtAdresseMail);
+	root.addRow(3, lblSujet, txtSujet);
+	root.addRow(4, txt);
+
+	root.setPadding(new Insets(15));
+	root.setHgap(20);
+	root.setVgap(15);
+	root.setStyle("-fx-background-color: grey");
+	root.setAlignment(Pos.TOP_CENTER);
+	root.setPrefSize(300,200);
+	
+	
+	Scene newWindow = new Scene(root,350,300);
+	Stage stage = (Stage) getScene().getWindow();
+	stage.setScene(newWindow);
+	
+	root.getChildren().addAll(btnRetour, btnEnvoyer);
+	
+	btnEnvoyer.setOnAction(new EventHandler<ActionEvent>() {
+
+		@Override
+		public void handle(ActionEvent event) {
+			
+			txtNom.setText("");
+			txtPrenom.setText("");
+			txtAdresseMail.setText("");
+			txtSujet.setText("");
+			txt.setText("");
+		}
+	});
+	
+	
+}
+
+
+public Label getLblNom() {
+	return lblNom;
+}
+
+
+public void setLblNom(Label lblNom) {
+	this.lblNom = lblNom;
+}
+
+
+public Label getLblPrenom() {
+	return lblPrenom;
+}
+
+
+public void setLblPrenom(Label lblPrenom) {
+	this.lblPrenom = lblPrenom;
+}
+
+
+public Label getLblAdresseMail() {
+	return lblAdresseMail;
+}
+
+
+public void setLblAdresseMail(Label lblAdresseMail) {
+	this.lblAdresseMail = lblAdresseMail;
+}
+
+
+public Label getLblSujet() {
+	return lblSujet;
+}
+
+
+public void setLblSujet(Label lblSujet) {
+	this.lblSujet = lblSujet;
+}
+
+
+public TextField getTxtNom() {
+	return txtNom;
+}
+
+
+public void setTxtNom(TextField txtNom) {
+	this.txtNom = txtNom;
+}
+
+
+public TextField getTxtPrenom() {
+	return txtPrenom;
+}
+
+
+public void setTxtPrenom(TextField txtPrenom) {
+	this.txtPrenom = txtPrenom;
+}
+
+
+public TextField getTxtAdresseMail() {
+	return txtAdresseMail;
+}
+
+
+public void setTxtAdresseMail(TextField txtAdresseMail) {
+	this.txtAdresseMail = txtAdresseMail;
+}
+
+
+public TextField getTxtSujet() {
+	return txtSujet;
+}
+
+
+public void setTxtSujet(TextField txtSujet) {
+	this.txtSujet = txtSujet;
+}
+
+
+public TextArea getTxt() {
+	return txt;
+}
+
+
+public void setTxt(TextArea txt) {
+	this.txt = txt;
+}
+
+
+
+}

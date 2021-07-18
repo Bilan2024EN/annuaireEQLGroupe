@@ -1,0 +1,33 @@
+btnAjouter.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent event) {
+
+				StagiaireDAO sDao = new StagiaireDAO();
+				RandomAccessFile raf;
+				try {
+					raf = new RandomAccessFile(sDao.getNameBinFile(),"rw");
+
+					MainPanel mp = (MainPanel) getScene().getRoot();
+					String nom = mp.getBpLeft().getGpLeft().getTfNom().getText();
+					nom = sDao.ajouterEspace(sDao.getCnom(), nom);
+					String prenom = mp.getBpLeft().getGpLeft().getTfPrenom().getText();
+					prenom = sDao.ajouterEspace(sDao.getCprenom(), prenom);
+					String depart = mp.getBpLeft().getGpLeft().getTfDepart().getText();
+					depart = sDao.ajouterEspace(sDao.getCdepart(), depart);
+					String promo = mp.getBpLeft().getGpLeft().getTfPromo().getText();
+					promo = sDao.ajouterEspace(sDao.getCpromo(), promo);
+					String anne = mp.getBpLeft().getGpLeft().getTfAnne().getText();
+					anne = sDao.ajouterEspace(sDao.getCanne(), anne);
+					
+					String infosStagiaire = nom + prenom + depart + promo + anne;
+
+					sDao.addABR(raf, infosStagiaire, 0);
+
+					raf.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
